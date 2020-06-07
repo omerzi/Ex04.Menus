@@ -8,31 +8,16 @@ namespace Ex04.Menus.Delegates
 {
     public class MenuItem
     {
-        private readonly List<MenuItem> r_SubMenu = null;
-        private string m_ItemName;
+        private readonly string r_Label;
 
-        public MenuItem(string i_Name)
+        public MenuItem(string i_Label)
         {
-            m_ItemName = i_Name;
-        }
-
-        public List<MenuItem> SubMenu
-        {
-            get { return r_SubMenu; }
+            r_Label = i_Label;
         }
 
         public string ItemName
         {
-            get { return m_ItemName; }
-            set 
-            {
-                if(string.IsNullOrWhiteSpace(value))
-                {
-                    throw new NullReferenceException("A name cannot be empty or consist of white-spaces only!");
-                }
-
-                m_ItemName = value;
-            }
+            get { return r_Label; }
         }
     }
 }
