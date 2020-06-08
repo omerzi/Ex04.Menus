@@ -30,8 +30,8 @@ namespace Ex04.Menus.Delegates
 
         public void Show()
         {
-            bool isInMenu = true;
-            while (isInMenu)
+            bool isRunning = true;
+            while (isRunning)
             {
                 int currentMenuItem = 1;
                 Console.WriteLine("---- {0} (Current Level: {1}) ----", ItemName, m_CurrentLevel);
@@ -47,7 +47,7 @@ namespace Ex04.Menus.Delegates
 
                 Console.Write("Enter selection: ");
                 int userSelection = getValidSelection(k_ExitLevel, r_MenuItems.Count);
-                operateBySelection(userSelection, ref isInMenu);
+                operateBySelection(userSelection, ref isRunning);
             }
         }
 
@@ -61,7 +61,7 @@ namespace Ex04.Menus.Delegates
             {
                 if(r_MenuItems[i_UserSelection - 1] is IActivable)
                 {
-                    (r_MenuItems[i_UserSelection - 1] as IActivable).Invoke();
+                    (r_MenuItems[i_UserSelection - 1] as IActivable).InvokeAll();
                 }
             }
         }

@@ -44,6 +44,7 @@
     <Compile Include="MainMenu.cs" />
     <Compile Include="ActivateHandler.cs" />
     <Compile Include="MenuItem.cs" />
+    <Compile Include="SubMenuItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

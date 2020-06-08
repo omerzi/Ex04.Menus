@@ -8,6 +8,6 @@ namespace Ex04.Menus.Delegates
 {
     public interface IActivable
     {
-        void Invoke();
+        void InvokeAll();
     }
 }
