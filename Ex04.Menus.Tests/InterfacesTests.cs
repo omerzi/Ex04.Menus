@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex04.Menus.Interfaces
+namespace Ex04.Menus.Tests
 {
-    public interface IActivable
+    public class InterfacesTests
     {
-        void InvokeAll();
+
     }
 }

@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ex04.Menus.Delegates;
-
+﻿
 namespace Ex04.Menus.Tests
 {
-    public  class DelegatesTest
+    using Ex04.Menus.Delegates;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    public class DelegatesTest
     {
         public void StartTest()
         {
