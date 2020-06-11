@@ -11,14 +11,11 @@ namespace Ex04.Menus.Tests
     {
         public static void Main()
         {
-            //MainMenu firstDelegateMenu = new MainMenu("Version and Digits");
-            //FinalMenuItem countCapitals = new FinalMenuItem("Count Capitals");
-            //FinalMenuItem showVersion = new FinalMenuItem("Show Version");
+            DelegatesTest delegateTest= new DelegatesTest();
+            delegateTest.StartTest();
 
-            //countCapitals.Activate += new DelegatesTest().printCountCapital_Activate;
-            
-            DelegatesTest test= new DelegatesTest();
-            test.StartTest();
+            InterfacesTests interfaceTest = new InterfacesTests();
+            interfaceTest.StartTest();
         }
 
     }

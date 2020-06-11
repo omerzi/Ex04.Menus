@@ -36,9 +36,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Date.cs" />
     <Compile Include="DelegatesTest.cs" />
     <Compile Include="InterfacesTests.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ex04.Menus.Delegates\Ex04.Menus.Delegates.csproj">

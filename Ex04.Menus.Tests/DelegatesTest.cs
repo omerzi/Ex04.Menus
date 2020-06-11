@@ -14,10 +14,10 @@ namespace Ex04.Menus.Tests
             MainMenu firstDelegateMenu = new MainMenu("Version and Digits");
             FinalMenuItem countCapitals = new FinalMenuItem("Count Capitals");
             FinalMenuItem showVersion = new FinalMenuItem("Show Version");
-            countCapitals.Activate += printCountCapital_Activation;
-            countCapitals.Activate += showVersion_Activation;
-
+            countCapitals.Activation += printCountCapital_Activation;
+            showVersion.Activation += showVersion_Activation;
             firstDelegateMenu.AddMenuItem(countCapitals);
+            firstDelegateMenu.AddMenuItem(showVersion);
             firstDelegateMenu.Show();
         }
 
@@ -30,6 +30,7 @@ namespace Ex04.Menus.Tests
 
         private void printCountCapital_Activation()
         {
+            Console.Clear();
             Console.WriteLine("Please enter a sentence: ");
             string userSentence = Console.ReadLine();
             int countCapital = 0;
@@ -41,8 +42,8 @@ namespace Ex04.Menus.Tests
                 }
             }
 
-            Console.WriteLine("Your sentence has {0} capital letters!", countCapital);
             Console.Clear();
+            Console.WriteLine("Your sentence has {0} capital letters!", countCapital);
             System.Threading.Thread.Sleep(2000);
         }
     }

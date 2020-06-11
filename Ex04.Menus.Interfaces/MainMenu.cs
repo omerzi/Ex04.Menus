@@ -9,12 +9,10 @@ namespace Ex04.Menus.Interfaces
     public class MainMenu : MenuItem
     {
         private const int k_ExitLevel = 0;
-        private int m_CurrentLevel = 0;
         private readonly List<MenuItem> r_MenuItems;
 
-        public MainMenu(string i_Label, int i_CurrentLevel = 0) : base(i_Label)
+        public MainMenu(string i_Label) : base(i_Label)
         {
-            m_CurrentLevel = i_CurrentLevel;
             r_MenuItems = new List<MenuItem>();
         }
 
@@ -30,24 +28,25 @@ namespace Ex04.Menus.Interfaces
 
         public void Show()
         {
-            bool isRunning = true;
-            while (isRunning)
+            bool isInMenu = true;
+            while (isInMenu)
             {
+                Console.Clear();
                 int currentMenuItem = 1;
-                Console.WriteLine("---- {0} (Current Level: {1}) ----", ItemName, m_CurrentLevel);
+                Console.WriteLine("---- {0} ----", ItemName);
                 printIfExitLevel(
-                    string.Format("Please select one of the options between 1 to {0}", r_MenuItems.Count),
-                    string.Format("{0}, please select one of the options between 1 to {1}: ", ItemName, r_MenuItems.Count));
-
+                    string.Format("Please select one of the options between 0 to {0}", r_MenuItems.Count),
+                    string.Format("{0}, please select one of the options between 0 to {1}: ", ItemName, r_MenuItems.Count));
+                printIfExitLevel("0. Exit", "0. Back");
                 foreach (MenuItem menuItem in r_MenuItems)
                 {
-                    printIfExitLevel("0. Exit", "0. Back");
                     Console.WriteLine("{0}. {1}", currentMenuItem, menuItem.ItemName);
+                    currentMenuItem++;
                 }
 
                 Console.Write("Enter selection: ");
                 int userSelection = getValidSelection(k_ExitLevel, r_MenuItems.Count);
-                operateBySelection(userSelection, ref isRunning);
+                operateBySelection(userSelection, ref isInMenu);
             }
         }
 
@@ -59,7 +58,7 @@ namespace Ex04.Menus.Interfaces
             }
             else
             {
-                if(r_MenuItems[i_UserSelection - 1] is IActivable)
+                if (r_MenuItems[i_UserSelection - 1] is IActivable)
                 {
                     (r_MenuItems[i_UserSelection - 1] as IActivable).InvokeAll();
                 }
@@ -68,23 +67,23 @@ namespace Ex04.Menus.Interfaces
 
         private void printIfExitLevel(string i_FirstMsg, string i_SecondMsg)
         {
-            if (m_CurrentLevel == k_ExitLevel)
+            if (this is SubMenuItem)
             {
-                Console.WriteLine(i_FirstMsg);
+                Console.WriteLine(i_SecondMsg);
             }
             else
             {
-                Console.WriteLine(i_SecondMsg);
+                Console.WriteLine(i_FirstMsg);
             }
         }
 
         private int getValidSelection(int i_MinValue, int i_MaxValue)
         {
             bool isValid = int.TryParse(Console.ReadLine(), out int selection);
-            while(!isValid && selection < i_MinValue || selection > i_MaxValue)
+            while (!isValid || selection < i_MinValue || selection > i_MaxValue)
             {
                 Console.WriteLine("Invalid choice! Please try again:");
-                isValid = int.TryParse(Console.ReadLine(), out selection); 
+                isValid = int.TryParse(Console.ReadLine(), out selection);
             }
 
             return selection;

@@ -13,6 +13,7 @@ namespace Ex04.Menus.Interfaces
 
         public FinalMenuItem(string i_Name) : base(i_Name)
         {
+            r_InvokersList = new List<IActivationInvokers>();
         }
 
         public void AddInvoker(IActivationInvokers i_Invoker)

@@ -8,7 +8,7 @@ namespace Ex04.Menus.Delegates
 {
     public class SubMenuItem : MainMenu, IActivable
     {
-        public SubMenuItem(string i_Label, int i_CurrentLevel) : base(i_Label, i_CurrentLevel) 
+        public SubMenuItem(string i_Label) : base(i_Label) 
         {
         }
 
